@@ -1,0 +1,11 @@
+<%= form_for @beet do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :tags %>
+  <%= f.text_field :tags %>
+  <%= f.label :image %>
+  <%= f.url_field :image, :required => true %>
+  <%= f.label :user_id, "Author user_id *to test*" %>
+  <%= f.select :user_id, User.pluck(:email, :id), :include_blank => true %>
+  <%= f.submit %>
+<% end %>

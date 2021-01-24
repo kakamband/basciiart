@@ -1,0 +1,16 @@
+<h1><%= @beet.title %></h1>
+
+<%= image_tag @beet.image, :class => 'feature', :alt => '@beet.title' %>
+
+<% if @beet.title.present? %>
+  <p><%= @beet.title %></p>
+<% end %>
+
+<% if @beet.user_id.present? %>
+  <%= link_to @beet.user.email, @beet.user %>
+<% end %>
+
+<div class="controls">
+  <%= link_to 'Edit post', edit_beet_path(@beet) %>
+  <%= link_to 'Delete Beet', @beet, :method => 'delete' %>
+</div>

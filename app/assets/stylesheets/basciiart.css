@@ -1,0 +1,82 @@
+/* body {
+  background-color: black;
+  color: white;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav {
+  position: fixed;
+  left: 50px;
+  top: 20px;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+.container {
+  width: 1135px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+pre {
+  margin: 0 0 0 5px;
+}
+
+button {
+  color: white;
+  font-family: monospace;
+  background-color: black;
+  outline: none;
+  border: 1px solid white;
+  padding: 8px 30px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: -20px 0 20px 0;
+}
+
+.info > a, p {
+  font-size: 16px;
+}
+
+.info > a {
+  color: white;
+  margin: 0 30px;
+}
+
+a {
+  color: white;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.copy {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+} */
+
+.title {
+  font-size: 30px;
+}
+
+img {
+  width: 300px;
+}
