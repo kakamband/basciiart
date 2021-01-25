@@ -1,17 +1,17 @@
 <h1><%= @beet.title %></h1>
 
-<% if @current_user.id == @user.id %>
+
 <div class="controls">
   <%= link_to 'Edit post', edit_beet_path(@beet) %>
   <%= link_to 'Delete Beet', @beet, :method => 'delete' %>
 </div>
-<% end %>
+
 
 <div class="post">
-<pre><%= AsciiArt.new("#{ @beet.image }").to_ascii_art(width: 70) %></pre>
+<pre><%= @beet.content %></pre>
 <div class="info">
 <a href="/users/<%= @beet.user_id %>"><%= @beet.user.username %></a>
-<p>♡ 103</p>
+<p>♡ <%= @likes.where(beet_id: @beet.id).count %></p>
 </div>
 </div>
 
