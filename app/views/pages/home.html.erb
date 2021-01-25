@@ -5,8 +5,8 @@
   <pre><%= AsciiArt.new("#{ beet.image }").to_ascii_art(width: 70) %></pre>
   <div class="info">
   <a href="/users/<%= beet.user_id %>"><%= beet.user.username %></a>
-  <p>♡ 103</p>
-  <a href="/">comments</a>
+  <p>♡ <%= @likes.count %></p>
+  <a href="/beets/<%= beet.id %>">comments</a>
   </div>
   </div>
 <% end %>

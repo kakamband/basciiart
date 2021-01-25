@@ -146,3 +146,16 @@ input[type="submit"] {
   max-width: 200px;
   align-self: center;
 }
+
+/* ------- Beet Detail Page ------- */
+
+.comments {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls {
+  margin-bottom: 30px;
+}
