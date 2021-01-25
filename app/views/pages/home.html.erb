@@ -3,7 +3,11 @@
 <% @beets.each do |beet| %>
   <div class="post">
   <pre><%= AsciiArt.new("#{ beet.image }").to_ascii_art(width: 70) %></pre>
-
+  <div class="info">
+  <a href="/users/<%= beet.user_id %>"><%= beet.user.username %></a>
+  <p>♡ 103</p>
+  <a href="/">comments</a>
+  </div>
   </div>
 <% end %>
 

@@ -99,7 +99,7 @@ pre {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: -20px 0 20px 0;
+  margin: -10px 0 20px 0;
 }
 
 .info > a, p {
@@ -135,9 +135,10 @@ form > label {
 }
 
 form > input, select {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   padding: 10px;
   outline: none;
+  border: none;
 }
 
 input[type="submit"] {
