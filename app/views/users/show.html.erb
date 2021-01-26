@@ -4,6 +4,8 @@
 <div class="controls"><%= link_to 'Edit profile', edit_user_path %></div>
 <% end %>
 
+<p><%= @user.bio %></p>
+
 <div class="post-container">
 
 <% @beets.each do |beet| %>

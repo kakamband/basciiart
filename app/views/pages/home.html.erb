@@ -1,7 +1,7 @@
 <div class="post-container">
 
 <% @beets.order(:created_at).each do |beet| %>
-  <div class="post">
+  <div class="post" id="<%= beet.id %>">
 
   <pre><%= beet.content %></pre>
 
@@ -21,7 +21,7 @@
 
   <% else %>
 
-    <p>♡ <%= @likes.where(beet_id: beet.id).count %></p>
+    <p class="like">♡ <%= @likes.where(beet_id: beet.id).count %></p>
 
   <% end %>
 

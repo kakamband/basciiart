@@ -12,6 +12,7 @@ class LikesController < ApplicationController
   def create
     @likes = Like.all
     like = Like.create like_params
+    beet = like.beet
     redirect_to request.referrer
   end
 
