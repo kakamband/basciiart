@@ -11,13 +11,21 @@
 
   <% if @current_user.present? %>
 
-    <p>
-      <%= form_for @like_new do |f| %>
-        <%= f.hidden_field :beet_id, value: beet.id %>
-        <%= f.hidden_field :user_id, value: @current_user.id %>
-        <%= f.submit "♡ #{@likes.where(beet_id: beet.id).count}", :id => "like" %>
-      <% end %>
-    </p>
+    <% if @likes.where(user_id: @current_user.id, beet_id: beet.id).any? == true %>
+
+      <%= link_to "♥ #{ @likes.where(beet_id: beet.id).count }", root_path(:user_id => @current_user.id, :beet_id => beet.id), :method => 'delete' %>
+
+    <% else %>
+
+      <p>
+        <%= form_for @like_new do |f| %>
+          <%= f.hidden_field :beet_id, value: beet.id %>
+          <%= f.hidden_field :user_id, value: @current_user.id %>
+          <%= f.submit "♡ #{@likes.where(beet_id: beet.id).count}", :id => "like" %>
+        <% end %>
+      </p>
+
+    <% end %>
 
   <% else %>
 

@@ -20,9 +20,11 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    like = Like.find params[:id]
-    like.destroy
-    redirect_to root_path
+    beet = params[:beet_id]
+    user = params[:user_id]
+    like = Like.where(beet_id: beet, user_id: user)
+    like.destroy_all
+    redirect_to root_path(anchor: beet)
   end
 
   private
