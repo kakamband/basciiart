@@ -13,7 +13,7 @@ class LikesController < ApplicationController
     @likes = Like.all
     like = Like.create like_params
     beet = like.beet
-    redirect_to request.referrer
+    redirect_to root_path(anchor: "#{beet.id}")
   end
 
   def show
