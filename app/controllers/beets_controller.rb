@@ -28,6 +28,7 @@ class BeetsController < ApplicationController
     @user = @beet.user
     @comments = @beet.comments
     @likes = Like.all
+    @comment_new = Comment.new
   end
 
   def destroy

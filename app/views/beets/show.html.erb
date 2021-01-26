@@ -1,11 +1,11 @@
 <h1><%= @beet.title %></h1>
 
-
+<% if @current_user.id == @user.id %>
 <div class="controls">
   <%= link_to 'Edit post', edit_beet_path(@beet) %>
   <%= link_to 'Delete Beet', @beet, :method => 'delete' %>
 </div>
-
+<% end %>
 
 <div class="post">
 <pre><%= @beet.content %></pre>
@@ -19,13 +19,19 @@
   <p><%= @beet.title %></p>
 <% end %>
 
-<% if @beet.user_id.present? %>
-  <%= link_to @beet.user.email, @beet.user %>
-<% end %>
+<h2>Comments</h3>
 
 <% @comments.each do |comment| %>
   <div class="comments">
     <p><%= comment.content %></p>
     <a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a>
   </div>
+<% end %>
+
+<%= form_for @comment_new do |f| %>
+  <%= f.label :content, "Comment:" %>
+  <%= f.text_field :content %>
+  <%= f.hidden_field :beet_id, value: @beet.id %>
+  <%= f.hidden_field :user_id, value: @current_user.id %>
+  <%= f.submit "Leave comment" %>
 <% end %>

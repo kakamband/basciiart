@@ -1,13 +1,20 @@
 <div class="post-container">
 
-<% @beets.each do |beet| %>
+<% @beets.order(:created_at).each do |beet| %>
   <div class="post">
+
   <pre><%= beet.content %></pre>
+
   <div class="info">
+
   <a href="/users/<%= beet.user_id %>"><%= beet.user.username %></a>
+
   <p>♡ <%= @likes.where(beet_id: beet.id).count %></p>
-  <a href="/beets/<%= beet.id %>">comments</a>
+
+  <a href="/beets/<%= beet.id %>"><%= @comments.where(beet_id: beet.id).count if @comments.where(beet_id: beet.id).count != 0 %> comments</a>
+
   </div>
+
   </div>
 <% end %>
 
