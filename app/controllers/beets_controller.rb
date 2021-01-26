@@ -27,8 +27,9 @@ class BeetsController < ApplicationController
     @beet = Beet.find params[:id]
     @user = @beet.user
     @comments = @beet.comments
-    @likes = Like.all
     @comment_new = Comment.new
+    @likes = Like.all
+    @like_new = Like.new
   end
 
   def destroy

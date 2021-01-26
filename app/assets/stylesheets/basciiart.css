@@ -100,10 +100,12 @@ pre {
   align-items: center;
   justify-content: center;
   margin: -10px 0 20px 0;
+  height: 60px;
 }
 
 .info > a, p {
   font-size: 16px;
+  margin: 0;
 }
 
 .info > a {
@@ -117,6 +119,20 @@ pre {
 
 .info > a:last-child {
   margin: 0 0 0 30px;
+}
+
+.new_like {
+  min-width: 20px;
+}
+
+#like {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  border: none;
+  margin-top: 30px;
+  padding: 8px 8px;
+  border-radius: 15px;
 }
 
 .copy {
@@ -162,6 +178,10 @@ input[type="submit"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.comments-info {
+  margin: 20px 0;
 }
 
 .controls {

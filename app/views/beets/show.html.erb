@@ -11,7 +11,23 @@
 <pre><%= @beet.content %></pre>
 <div class="info">
 <a href="/users/<%= @beet.user_id %>"><%= @beet.user.username %></a>
-<p>♡ <%= @likes.where(beet_id: @beet.id).count %></p>
+
+<% if @current_user.present? %>
+
+  <p>
+    <%= form_for @like_new do |f| %>
+      <%= f.hidden_field :beet_id, value: @beet.id %>
+      <%= f.hidden_field :user_id, value: @current_user.id %>
+      <%= f.submit "♡ #{@likes.where(beet_id: @beet.id).count}", :id => "like" %>
+    <% end %>
+  </p>
+
+<% else %>
+
+  <p>♡ <%= @likes.where(beet_id: @beet.id).count %></p>
+
+<% end %>
+
 </div>
 </div>
 
@@ -24,7 +40,12 @@
 <% @comments.each do |comment| %>
   <div class="comments">
     <p><%= comment.content %></p>
-    <a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a>
+    <div class="comments-info">
+      <a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a>
+      <% if @current_user.id == comment.user.id %>
+        <%= link_to 'Delete Comment', @comment, :method => 'delete' %>
+      <% end %>
+    </div>
   </div>
 <% end %>
 

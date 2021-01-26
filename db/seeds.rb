@@ -5,10 +5,10 @@ u3 = User.create :email => 'gocsy@ga.co', :username => 'gocsy', :password => 'ch
 puts "#{ User.count } users added."
 
 Beet.destroy_all
-b1 = Beet.create :content => 'content 1, basquiat', :image => 'https://news.artnet.com/app/news-upload/2018/02/jean-michel-basquiat-cabeza-from-portfolio-ii-prints-and-multiples-zoom_550_759.jpg'
-b2 = Beet.create :content => 'content 2, aphex', :image => 'https://1.bp.blogspot.com/_2CnQWIZQ3NY/R0piYJTcVNI/AAAAAAAAAUg/MaF7YXX5xhk/s320/aph.jpg'
-b3 = Beet.create :content => 'content 3, acdc', :image => 'https://ae01.alicdn.com/kf/HTB1u70laZrrK1Rjy1zeq6xalFXas.jpg'
-b4 = Beet.create :content => 'content 4, donut', :image => 'https://i1.wp.com/www.templatescatalog.com/wp-content/uploads/2020/08/Chocolate-donut-on-black-background.jpg'
+b1 = Beet.create :content => AsciiArt.new("https://news.artnet.com/app/news-upload/2018/02/jean-michel-basquiat-cabeza-from-portfolio-ii-prints-and-multiples-zoom_550_759.jpg").to_ascii_art(width: 70), :image => 'https://news.artnet.com/app/news-upload/2018/02/jean-michel-basquiat-cabeza-from-portfolio-ii-prints-and-multiples-zoom_550_759.jpg'
+b2 = Beet.create :content => AsciiArt.new("https://1.bp.blogspot.com/_2CnQWIZQ3NY/R0piYJTcVNI/AAAAAAAAAUg/MaF7YXX5xhk/s320/aph.jpg").to_ascii_art(width: 70), :image => 'https://1.bp.blogspot.com/_2CnQWIZQ3NY/R0piYJTcVNI/AAAAAAAAAUg/MaF7YXX5xhk/s320/aph.jpg'
+b3 = Beet.create :content => AsciiArt.new("https://ae01.alicdn.com/kf/HTB1u70laZrrK1Rjy1zeq6xalFXas.jpg").to_ascii_art(width: 70), :image => 'https://ae01.alicdn.com/kf/HTB1u70laZrrK1Rjy1zeq6xalFXas.jpg'
+b4 = Beet.create :content => AsciiArt.new("https://i1.wp.com/www.templatescatalog.com/wp-content/uploads/2020/08/Chocolate-donut-on-black-background.jpg").to_ascii_art(width: 70), :image => 'https://i1.wp.com/www.templatescatalog.com/wp-content/uploads/2020/08/Chocolate-donut-on-black-background.jpg'
 puts "#{ Beet.count } beets added."
 
 Comment.destroy_all

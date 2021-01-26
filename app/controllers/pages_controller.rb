@@ -3,5 +3,6 @@ class PagesController < ApplicationController
     @beets = Beet.all
     @likes = Like.all
     @comments = Comment.all
+    @like_new = Like.new
   end
 end
