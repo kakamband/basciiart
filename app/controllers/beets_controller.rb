@@ -19,7 +19,7 @@ class BeetsController < ApplicationController
 
   def update
     beet = Beet.find params[:id]
-    beet.update :title => params[:beet][:title], :tags => params[:beet][:tags], :content => AsciiArt.new("#{ params[:beet][:image] }").to_ascii_art(width: 70), :image => params[:beet][:image], :user_id => params[:beet][:user_id]
+    beet.update beet_params
     redirect_to beet # redirect back to the beet page
   end
 
