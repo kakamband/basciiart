@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Basciiart</title>
+    <title>Basciiart (o˘◡˘o)</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= favicon_link_tag asset_path('favicon.png') %>
+
+    <meta property="og:title" content="bASCIIart" />
+    <meta property="og:description" content="Create your own ASCII art by uploading an image and watch it come to life in ASCII! (o˘◡˘o)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://basciiart.herokuapp.com/" />
+    <%= tag :meta, property: 'og:image', content: asset_path('basciiart-og.png') %>
   </head>
 
   <body>
@@ -21,7 +29,7 @@
           <% end %>
           <li><a href="/users/<%= @current_user.id %>"><%= "View profile" %></a></li>
           <li><%= link_to "Log out", login_path, :method => 'delete' %></li>
-          <li><%= link_to "Create beet!", new_beet_path, :class => 'create-beet' %></li> <!-- Security through obscurity -->
+          <li><%= link_to "Create Beet!", new_beet_path, :class => 'create-beet' %></li> <!-- Security through obscurity -->
         <% else %>
           <li><%= link_to 'Sign up', new_user_path %></li>
           <li><%= link_to 'Login', login_path %></li>

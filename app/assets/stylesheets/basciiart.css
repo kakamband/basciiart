@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 body {
   background-color: black;
   color: white;
-  font-family: monospace;
+  font-family: 'Space Mono', monospace;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,7 +70,7 @@ h1 {
 .create-beet, input[type="submit"] {
   display: inline-flex;
   color: white;
-  font-family: monospace;
+  font-family: 'Space Mono', monospace;
   font-size: 14px;
   background-color: black;
   outline: none;
@@ -180,7 +182,7 @@ form > label {
 }
 
 form > input, select {
-  font-family: monospace;
+  font-family: 'Space Mono', monospace;
   font-size: inherit;
   margin-bottom: 30px;
   padding: 10px 15px;
