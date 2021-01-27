@@ -9,8 +9,14 @@ class BeetsController < ApplicationController
   end
 
   def create
-    beet = Beet.create :title => params[:beet][:title], :tags => params[:beet][:tags], :content => AsciiArt.new("#{ params[:beet][:image] }").to_ascii_art(width: 70), :image => params[:beet][:image], :user_id => @current_user.id
-    redirect_to root_path # show the beet detail page (soon to add comments and likes)
+    beet = Beet.create :title => params[:beet][:title], :tags => params[:beet][:tags], :user_id => @current_user.id
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      beet.image = req["public_id"] # store the Cloudinary link in the image column
+      beet.content = AsciiArt.new(Cloudinary::Utils.cloudinary_url(req["public_id"])).to_ascii_art(width: 70)
+      beet.save
+    end
+    redirect_to root_path # show the beet detail page
   end
 
   def edit

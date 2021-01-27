@@ -36,6 +36,9 @@ gem 'asciiart'
 # httparty for getting images from URL and storing to the database
 gem 'httparty'
 
+# Cloudinary integration to store images
+gem 'cloudinary'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
