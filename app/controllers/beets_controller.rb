@@ -44,6 +44,10 @@ class BeetsController < ApplicationController
     redirect_to root_path # redirect back to the index
   end
 
+  def clipboard
+    IO.popen("pbcopy", "w") { |pipe| pipe.puts "Aphex Twin!" }
+  end
+
   private
   def beet_params # setup of strong params
     params.require(:beet).permit(:title, :tags, :content, :image, :like_count, :comment_count, :user_id)

@@ -35,6 +35,8 @@
 
     <a href="/beets/<%= beet.id %>">comments <%= "(#{@comments.where(beet_id: beet.id).count})" if @comments.where(beet_id: beet.id).count != 0 %></a>
 
+    <%= link_to "Copy to Clipboard", root_path(:id => beet.id), :method => 'clipboard' %>
+
     </div>
 
     </div>

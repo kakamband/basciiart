@@ -5,4 +5,9 @@ class PagesController < ApplicationController
     @comments = Comment.all
     @like_new = Like.new
   end
+
+  def clipboard
+    beet = Beet.find params[:id]
+    IO.popen("pbcopy", "w") { |pipe| pipe.puts beet.content }
+  end
 end

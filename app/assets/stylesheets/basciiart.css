@@ -136,21 +136,31 @@ a {
   border-bottom: 1px solid white;
 }
 
-.info > a, p {
+.info > a {
   font-size: 16px;
-  margin: 0;
+  margin: 0 15px;
+  border: none;
+}
+
+.info > a:hover {
+  border-bottom: 1px solid white;
 }
 
 .info > a:first-child {
-  margin: 0 30px 0 0;
+  margin: 0 15px 0 0;
 }
 
 .info > a:last-child {
-  margin: 0 0 0 30px;
+  margin: 0 0 0 15px;
+}
+
+.unliked {
+  padding: 8px 8px;
 }
 
 .new_like {
   min-width: 20px;
+  border: none;
 }
 
 #like, .liked {
@@ -158,19 +168,15 @@ a {
   justify-content: center;
   font-size: 16px;
   border: none;
-  margin-top: 0;
+  margin: 0;
   padding: 5px 9px;
   border-radius: 15px;
 }
 
-.unliked {
-  padding: 8px 8px;
-}
-
-.liked {
+#liked {
   text-decoration: none;
-  transition: 0.25s;
   border: none;
+  transition: 0.25s;
 }
 
 .liked:hover {

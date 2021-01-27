@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   delete '/' => 'likes#destroy'
 
+  post '/' => 'pages#clipboard'
+
   # Login feature
   get '/login' => 'session#new' # login form
   post '/login' => 'session#create' # process the login
