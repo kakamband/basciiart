@@ -3,7 +3,7 @@
   <%= f.text_field :title %>
   <%= f.label :tags %>
   <%= f.text_field :tags %>
-  <%= f.label :image %>
+  <%= f.label "Image to convert" %>
   <%= f.cl_image_upload :image, :class => "custom-file-input", :required => true %>
   <%= f.submit %>
 <% end %>
