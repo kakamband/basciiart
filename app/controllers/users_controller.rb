@@ -32,8 +32,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
     @beets = Beet.all
-    # @beet = Beet.find params[:id]
     @likes = Like.all
+    @like_new = Like.new
+    @comments = Comment.all
   end
 
   def destroy

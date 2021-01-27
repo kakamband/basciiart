@@ -33,7 +33,7 @@
 
   <% end %>
 
-  <a href="/beets/<%= beet.id %>"><%= @comments.where(beet_id: beet.id).count if @comments.where(beet_id: beet.id).count != 0 %> comments</a>
+  <a href="/beets/<%= beet.id %>">comments <%= "(#{@comments.where(beet_id: beet.id).count})" if @comments.where(beet_id: beet.id).count != 0 %></a>
 
   </div>
 

@@ -4,6 +4,6 @@
   <%= f.label :tags %>
   <%= f.text_field :tags %>
   <%= f.label :image %>
-  <%= f.cl_image_upload :image, :required => true %>
+  <%= f.cl_image_upload :image, :class => "custom-file-input", :required => true %>
   <%= f.submit %>
 <% end %>
