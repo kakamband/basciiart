@@ -13,7 +13,7 @@
 
     <% if @likes.where(user_id: @current_user.id, beet_id: beet.id).any? == true %>
 
-      <%= link_to "♥ #{ @likes.where(beet_id: beet.id).count }", root_path(:user_id => @current_user.id, :beet_id => beet.id), :method => 'delete' %>
+      <%= link_to "♥ #{ @likes.where(beet_id: beet.id).count }", root_path(:user_id => @current_user.id, :beet_id => beet.id), :class => "liked", :method => 'delete' %>
 
     <% else %>
 
@@ -29,7 +29,7 @@
 
   <% else %>
 
-    <p class="like">♡ <%= @likes.where(beet_id: beet.id).count %></p>
+    <p class="unliked">♡ <%= @likes.where(beet_id: beet.id).count %></p>
 
   <% end %>
 

@@ -10,7 +10,7 @@
 
     <%= favicon_link_tag asset_path('favicon.png') %>
 
-    <meta property="og:title" content="bASCIIart" />
+    <meta property="og:title" content="bASCIIart (o˘◡˘o)" />
     <meta property="og:description" content="Create your own ASCII art by uploading an image and watch it come to life in ASCII! (o˘◡˘o)" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://basciiart.herokuapp.com/" />
@@ -40,6 +40,8 @@
     <div class="main-container">
     <%= yield %>
     </div>
+
+    <div class="credits">Brought to you in <%= Date.current.year %> by <a href="https://github.com/oisa/basciiart" target="_blank">oisa</a>. Made possible with <a href="https://github.com/nodanaonlyzuul/asciiart" target="_blank">asciiart</a> and <a href="https://generalassemb.ly/" target="_blank">ga</a>.</div>
 
   </body>
 </html>

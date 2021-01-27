@@ -11,6 +11,10 @@ body {
   margin: 0;
 }
 
+.title {
+  font-size: 30px;
+}
+
 nav {
   position: sticky;
   display: flex;
@@ -127,11 +131,6 @@ pre {
   margin: 0;
 }
 
-.info > a {
-  color: white;
-  margin: 0 30px;
-}
-
 .info > a:first-child {
   margin: 0 30px 0 0;
 }
@@ -144,18 +143,28 @@ pre {
   min-width: 20px;
 }
 
-#like {
+#like, .liked {
   display: flex;
   justify-content: center;
   font-size: 16px;
   border: none;
   margin-top: 0;
-  padding: 8px 8px;
+  padding: 5px 9px;
   border-radius: 15px;
 }
 
-.like {
+.unliked {
   padding: 8px 8px;
+}
+
+.liked {
+  text-decoration: none;
+}
+
+.liked:hover {
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  color: black;
+  background-color: white;
 }
 
 .copy {
@@ -164,8 +173,21 @@ pre {
   align-self: flex-end;
 }
 
-.title {
-  font-size: 30px;
+.credits {
+  font-size: 12px;
+  margin: 50px 0 20px 0;
+  cursor: default;
+  bottom: 10px;
+}
+
+.credits::after {
+  content: " ᕕ( ᐛ )ᕗ";
+  width: 200px;
+}
+
+.credits:hover::after {
+  content: " ᕕ( ᐕ )ᕗ";
+  margin-left: -2.5px;
 }
 
 /* -------- Beet Create Page -------- */
