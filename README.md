@@ -4,7 +4,7 @@ Create your own ASCII art by uploading an image and watch it come to life in ASC
 
 Simply upload an image and it'll be converted into ASCII. ᕕ( ᐕ )ᕗ
 
-<button name="button" style="color: white; border: 1px solid white; background-color: black; border-radius: 20px; padding: 8px 23px; font-family: 'Space Mono', monospace;" onclick="https://basciiart.herokuapp.com/">give bASCIIart a whirl!</button>
+[Give bASCIIart a whirl](https://basciiart.herokuapp.com/) today! (or tomorrow if that's better for you)
 
 ## Features
 
@@ -46,7 +46,7 @@ bASCIIart currently uses 4 databases:
 
 They relate in the following ways:
 
-![bASCIIart Associations](https://github.com/oisa/basciiart/blob/main/app/assets/images/3-associations.png)
+<img src="https://raw.githubusercontent.com/oisa/basciiart/main/app/assets/images/3-associations.png" data-canonical-src="https://raw.githubusercontent.com/oisa/basciiart/main/app/assets/images/3-associations.png" width="500px" />
 
 ##### Deployment
 
