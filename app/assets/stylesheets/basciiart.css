@@ -225,7 +225,7 @@ form {
   min-width: 500px;
 }
 
-form > label {
+form > label, .field_with_errors {
   margin-bottom: 12px;
   font-size: 18px;
 }
@@ -240,6 +240,27 @@ form > input, select {
   outline: none;
   border: none;
   border-radius: 20px;
+}
+
+.field_with_errors > input {
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  text-transform: lowercase;
+  font-size: inherit;
+  margin-bottom: 30px;
+  padding: 10px 15px;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  width: 95%;
+  color: white;
+  background-color: red;
+}
+
+ol {
+  margin: 30px 0;
+  color: red;
+  padding-inline-start: 0;
 }
 
 input[type="submit"] {
