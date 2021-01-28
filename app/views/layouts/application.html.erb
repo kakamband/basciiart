@@ -40,6 +40,7 @@
         <% else %>
           <li><%= link_to 'sign up', new_user_path %></li>
           <li><%= link_to 'login', login_path %></li>
+          <li><%= link_to "create beet!", login_path, :class => 'create-beet' %></li>
         <% end %>
 
       </ul>
