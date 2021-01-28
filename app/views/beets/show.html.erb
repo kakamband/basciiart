@@ -55,7 +55,7 @@
     <div class="comments-info">
       <a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a>
       <% if @current_user.present? && @current_user.id == comment.user.id %>
-        <%= link_to 'delete comment', comment_path(:id => comment.id, :user_id => @current_user.id, :beet_id => @beet.id), :method => 'delete' %>
+        <%= link_to 'delete comment', comment_path(:id => comment.id, :user_id => @current_user.id, :beet_id => @beet.id), :class => 'delete-comment', :method => 'delete' %>
       <% end %>
     </div>
   </div>
@@ -63,7 +63,7 @@
 
 <% if @current_user.present? %>
   <div class="leave-comment">
-    <h2>Comment on <%= @beet.user.username %>'s beet:</h2>
+    <h3>Comment on <%= @beet.user.username %>'s beet:</h3>
     <%= form_for @comment_new do |f| %>
       <%= f.text_field :content %>
       <%= f.hidden_field :beet_id, value: @beet.id %>
