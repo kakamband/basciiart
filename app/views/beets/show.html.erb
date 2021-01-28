@@ -1,6 +1,6 @@
 <h1><%= @beet.title %></h1>
 
-<% if @current_user.present? && @current_user.id == @user.id %>
+<% if @current_user.present? && @current_user.id == @user.id || @current_user.admin? %>
 <div class="controls">
   <%= link_to 'edit post', edit_beet_path(@beet) %>
   <%= link_to 'delete beet', @beet, :method => 'delete' %>
