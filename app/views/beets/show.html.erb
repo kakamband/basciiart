@@ -13,13 +13,13 @@
 
   <div class="info">
 
-    <a href="/users/<%= @beet.user_id %>"><%= @beet.user.username %></a>
+    <a href="/users/<%= @beet.user_id %>" class="info-item"><%= @beet.user.username %></a>
 
     <% if @current_user.present? %>
 
       <% if @likes.where(user_id: @current_user.id, beet_id: @beet.id).any? == true %>
 
-        <%= link_to "♥ #{ @likes.where(beet_id: @beet.id).count }", root_path(:user_id => @current_user.id, :beet_id => @beet.id), :class => "liked", :method => 'delete' %>
+        <%= link_to "♥ #{ @likes.where(beet_id: @beet.id).count }", root_path(:user_id => @current_user.id, :beet_id => @beet.id), :id => "liked", :method => 'delete' %>
 
       <% else %>
 
@@ -35,7 +35,7 @@
 
     <% else %>
 
-      <p class="unliked guest">♡ <%= @likes.where(beet_id: @beet.id).count %></p>
+      <%= link_to "♡ #{@likes.where(beet_id: @beet.id).count}", login_path, :id => "like" %>
 
     <% end %>
 
@@ -65,8 +65,8 @@
 
 <% if @current_user.present? %>
   <div class="leave-comment">
-    <h3>comment on <%= @beet.user.username %>'s beet:</h3>
     <%= form_for @comment_new do |f| %>
+      <%= f.label "comment on #{ @beet.user.username }'s beet:" %>
       <%= f.text_field :content %>
       <%= f.hidden_field :beet_id, value: @beet.id %>
       <%= f.hidden_field :user_id, value: @current_user.id %>

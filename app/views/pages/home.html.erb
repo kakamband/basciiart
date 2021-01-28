@@ -1,41 +1,42 @@
 <div class="post-container">
 
-<% @beets.order(:created_at).each do |beet| %>
-  <div class="post" id="<%= beet.id %>">
+  <% @beets.order(:created_at).each do |beet| %>
 
-    <pre><%= beet.content %></pre>
+    <div class="post" id="<%= beet.id %>">
 
-    <div class="info">
+      <pre><%= beet.content %></pre>
 
-    <a href="/users/<%= beet.user_id %>"><%= beet.user.username %></a>
+      <div class="info">
 
-      <% if @current_user.present? %>
+        <a href="/users/<%= beet.user_id %>" class="info-item"><%= beet.user.username %></a>
 
-        <% if @likes.where(user_id: @current_user.id, beet_id: beet.id).any? == true %>
+        <% if @current_user.present? %>
 
-          <%= link_to "♥ #{ @likes.where(beet_id: beet.id).count }", root_path(:user_id => @current_user.id, :beet_id => beet.id), :class => "liked", :method => 'delete' %>
+          <% if @likes.where(user_id: @current_user.id, beet_id: beet.id).any? == true %>
+
+            <%= link_to "♥ #{ @likes.where(beet_id: beet.id).count }", root_path(:user_id => @current_user.id, :beet_id => beet.id), :id => "liked", :method => 'delete' %>
+
+          <% else %>
+
+            <p>
+              <%= form_for @like_new do |f| %>
+                <%= f.hidden_field :beet_id, value: beet.id %>
+                <%= f.hidden_field :user_id, value: @current_user.id %>
+                <%= f.submit "♡ #{@likes.where(beet_id: beet.id).count}", :id => "like" %>
+              <% end %>
+            </p>
+
+          <% end %>
 
         <% else %>
 
-          <p>
-            <%= form_for @like_new do |f| %>
-              <%= f.hidden_field :beet_id, value: beet.id %>
-              <%= f.hidden_field :user_id, value: @current_user.id %>
-              <%= f.submit "♡ #{@likes.where(beet_id: beet.id).count}", :id => "like" %>
-            <% end %>
-          </p>
+          <%= link_to "♡ #{@likes.where(beet_id: beet.id).count}", login_path, :id => "like" %>
 
         <% end %>
 
-      <% else %>
+        <a href="/beets/<%= beet.id %>" id="comment-beet" class="info-item">comments <%= "(#{@comments.where(beet_id: beet.id).count})" if @comments.where(beet_id: beet.id).count != 0 %></a>
 
-        <p class="unliked guest">♡ <%= @likes.where(beet_id: beet.id).count %></p>
-
-      <% end %>
-
-      <a href="/beets/<%= beet.id %>" id="comment-beet">comments <%= "(#{@comments.where(beet_id: beet.id).count})" if @comments.where(beet_id: beet.id).count != 0 %></a>
-
-      <%= link_to "", root_path(:id => beet.id), :class => 'far fa-copy', :id => 'clipboard', :method => 'clipboard' %>
+        <%= link_to "", root_path(:id => beet.id), :class => 'far fa-copy', :id => 'clipboard', :method => 'clipboard' %>
 
       </div>
 

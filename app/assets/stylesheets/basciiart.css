@@ -10,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
+  text-transform: lowercase;
 }
 
 .title {
@@ -48,6 +49,8 @@ li > a {
 
 a {
   color: white;
+  text-decoration: none;
+  border-bottom: 1px solid white;
 }
 
 h1 {
@@ -81,6 +84,7 @@ h1, h2, h3 {
   display: inline-flex;
   color: white;
   font-family: 'Space Mono', monospace;
+  text-transform: lowercase;
   font-size: 14px;
   background-color: black;
   outline: none;
@@ -95,6 +99,22 @@ h1, h2, h3 {
 .create-beet:hover, input[type="submit"]:hover {
   color: black;
   background-color: white;
+}
+
+.credits {
+  font-size: 12px;
+  margin: 50px 0 20px 0;
+  cursor: default;
+  bottom: 10px;
+}
+
+.credits::after {
+  content: " ᕕ( ᐕ )ᕗ";
+}
+
+.credits:hover::after {
+  content: " ᕕ( ᐛ )ᕗ";
+  margin-left: 2.5px;
 }
 
 /* -------- Main Post Feed -------- */
@@ -123,6 +143,10 @@ pre {
   margin: 0 0 0 5px;
 }
 
+.info-container {
+  margin: 30px 0;
+}
+
 .info {
   display: flex;
   flex-direction: row;
@@ -132,17 +156,13 @@ pre {
   height: 60px;
 }
 
-a {
-  text-decoration: none;
-  border-bottom: 1px solid white;
-}
-
-.info > a {
+.info-item {
   font-size: 16px;
   border: none;
+  transition: 0.25s;
 }
 
-.info > a:hover {
+.info-item:hover {
   border-bottom: 1px solid white;
 }
 
@@ -154,10 +174,6 @@ a {
   margin: 0 0 0 15px;
 }
 
-#comment-beet {
-  margin: 0 15px;
-}
-
 .unliked {
   padding: 5px 9px;
 }
@@ -167,7 +183,7 @@ a {
   border: none;
 }
 
-#like, .liked {
+#like, #liked {
   display: flex;
   justify-content: center;
   font-size: 16px;
@@ -175,41 +191,30 @@ a {
   margin: 2px 10px 0 10px;
   padding: 5px 9px;
   border-radius: 15px;
+  transition: 0.25s;
 }
 
 #liked {
   text-decoration: none;
-  border: none;
-  transition: 0.25s;
+  border: none!important;
 }
 
-.liked:hover {
+#like:hover, #liked:hover {
   color: black;
   background-color: white;
+  border-bottom: none;
 }
 
 .guest {
   margin: 2px 10px 0 10px;
 }
 
+#comment-beet {
+  margin: 0 15px;
+}
+
 #clipboard {
   border: none;
-}
-
-.credits {
-  font-size: 12px;
-  margin: 50px 0 20px 0;
-  cursor: default;
-  bottom: 10px;
-}
-
-.credits::after {
-  content: " ᕕ( ᐕ )ᕗ";
-}
-
-.credits:hover::after {
-  content: " ᕕ( ᐛ )ᕗ";
-  margin-left: 2.5px;
 }
 
 /* -------- Beet Create Page -------- */
@@ -228,6 +233,7 @@ form > label {
 form > input, select {
   text-align: center;
   font-family: 'Space Mono', monospace;
+  text-transform: lowercase;
   font-size: inherit;
   margin-bottom: 30px;
   padding: 10px 15px;
@@ -244,12 +250,15 @@ input[type="submit"] {
 
 input::-webkit-file-upload-button {
   font-family: 'Space Mono', monospace;
+  text-transform: lowercase;
   font-size: inherit;
   margin: 0 20px 30px 0;
   padding: 10px 15px;
   outline: none;
   border: none;
   border-radius: 20px;
+  align-self: center;
+  justify-content: center;
 }
 
 /* ------- Beet Detail Page ------- */
@@ -262,7 +271,6 @@ input::-webkit-file-upload-button {
 }
 
 .leave-comment {
-  text-align: center;
   border-top: solid 1px white;
   margin-top: 20px;
   padding-top: 40px;
@@ -323,5 +331,5 @@ input::-webkit-file-upload-button {
   nav > ul > li {
     margin: 10px 0;
   }
-  
+
 }
