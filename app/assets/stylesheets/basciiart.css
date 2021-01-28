@@ -306,3 +306,22 @@ input::-webkit-file-upload-button {
     height: 100px;
     margin: -100px 0 0;
 } */
+
+/* -------- Media Queries ---------  */
+
+@media all and (max-width: 1144px) and (min-width: 20px) {
+
+  nav {
+    height: 100%;
+  }
+
+  nav > ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav > ul > li {
+    margin: 10px 0;
+  }
+  
+}

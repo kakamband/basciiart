@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>bASCIIart (o˘◡˘o)</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= cloudinary_js_config %>
@@ -17,26 +19,31 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://basciiart.herokuapp.com/" />
     <%= tag :meta, property: 'og:image', content: image_url('basciiart-og.png') %>
+
   </head>
 
   <body>
 
     <nav>
+
       <ul>
+
         <li><%= link_to 'bASCIIart', root_path, :class => 'title' %></li>
-        <li><%= link_to 'feed', root_path %></li>
+        <li><%= link_to 'feed', root_path, :class => 'nav-item' %></li>
         <% if @current_user.present? %>
+          <li><a href="/users/<%= @current_user.id %>"><%= "view profile" %></a></li>
+          <li><%= link_to "log out", login_path, :class => 'nav-item', :method => 'delete' %></li>
+          <li><%= link_to "create beet!", new_beet_path, :class => 'create-beet' %></li>
           <% if @current_user.admin? %>
             <li><%= link_to 'users (admin only)', users_path %></li>
           <% end %>
-          <li><a href="/users/<%= @current_user.id %>"><%= "view profile" %></a></li>
-          <li><%= link_to "log out", login_path, :method => 'delete' %></li>
-          <li><%= link_to "create beet!", new_beet_path, :class => 'create-beet' %></li> <!-- Security through obscurity -->
         <% else %>
           <li><%= link_to 'sign up', new_user_path %></li>
           <li><%= link_to 'login', login_path %></li>
         <% end %>
+
       </ul>
+
     </nav>
 
     <div class="main-container">
