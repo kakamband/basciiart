@@ -1,10 +1,17 @@
 <h1><%= @user.username %></h1>
 
-<% if @current_user.present? && @current_user.id == @user.id %>
-<div class="controls"><%= link_to 'Edit profile', edit_user_path %></div>
-<% end %>
 
-<p><%= @user.bio %></p>
+<div class="controls">
+
+  <% if @current_user.present? && @current_user.id == @user.id %>
+   <%= link_to 'edit profile', edit_user_path %>
+  <% end %>
+
+  <% if @user.bio.present? %>
+  <p><%= @user.bio %></p>
+  <% end %>
+
+</div>
 
 <div class="post-container">
 
@@ -38,11 +45,11 @@
 
         <% else %>
 
-          <p>♡ <%= @likes.where(beet_id: beet.id).count %></p>
+          <p class="unliked guest">♡ <%= @likes.where(beet_id: beet.id).count %></p>
 
         <% end %>
 
-        <a href="/beets/<%= beet.id %>">comments <%= "(#{@comments.where(beet_id: beet.id).count})" if @comments.where(beet_id: beet.id).count != 0 %></a>
+        <a href="/beets/<%= beet.id %>" id="comment-beet">comments <%= "(#{@comments.where(beet_id: beet.id).count})" if @comments.where(beet_id: beet.id).count != 0 %></a>
 
       </div>
 

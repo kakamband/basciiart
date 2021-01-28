@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
     <%= favicon_link_tag asset_path('favicon.png') %>
 
@@ -23,17 +24,17 @@
     <nav>
       <ul>
         <li><%= link_to 'bASCIIart', root_path, :class => 'title' %></li>
-        <li><%= link_to 'Feed', root_path %></li>
+        <li><%= link_to 'feed', root_path %></li>
         <% if @current_user.present? %>
           <% if @current_user.admin? %>
-            <li><%= link_to 'Users (admin only)', users_path %></li>
+            <li><%= link_to 'users (admin only)', users_path %></li>
           <% end %>
-          <li><a href="/users/<%= @current_user.id %>"><%= "View profile" %></a></li>
-          <li><%= link_to "Log out", login_path, :method => 'delete' %></li>
-          <li><%= link_to "Create Beet!", new_beet_path, :class => 'create-beet' %></li> <!-- Security through obscurity -->
+          <li><a href="/users/<%= @current_user.id %>"><%= "view profile" %></a></li>
+          <li><%= link_to "log out", login_path, :method => 'delete' %></li>
+          <li><%= link_to "create beet!", new_beet_path, :class => 'create-beet' %></li> <!-- Security through obscurity -->
         <% else %>
-          <li><%= link_to 'Sign up', new_user_path %></li>
-          <li><%= link_to 'Login', login_path %></li>
+          <li><%= link_to 'sign up', new_user_path %></li>
+          <li><%= link_to 'login', login_path %></li>
         <% end %>
       </ul>
     </nav>
@@ -42,7 +43,7 @@
     <%= yield %>
     </div>
 
-    <div class="credits">Brought to you in <%= Date.current.year %> by <a href="https://github.com/oisa/basciiart" target="_blank">oisa</a>. Made possible with <a href="https://github.com/nodanaonlyzuul/asciiart" target="_blank">asciiart</a> and <a href="https://generalassemb.ly/" target="_blank">ga</a>.</div>
+    <div class="credits">brought to you in <%= Date.current.year %> by <a href="https://github.com/oisa/basciiart" target="_blank">oisa</a>. made possible with <a href="https://github.com/nodanaonlyzuul/asciiart" target="_blank">asciiart</a> and <a href="https://generalassemb.ly/" target="_blank">ga</a>.</div>
 
   </body>
 </html>

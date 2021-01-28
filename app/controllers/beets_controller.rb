@@ -45,7 +45,8 @@ class BeetsController < ApplicationController
   end
 
   def clipboard
-    IO.popen("pbcopy", "w") { |pipe| pipe.puts "Aphex Twin!" }
+    beet = Beet.find params[:id]
+    IO.popen("pbcopy", "w") { |clipboard| clipboard.puts beet.content }
   end
 
   private

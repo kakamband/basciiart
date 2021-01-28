@@ -13,7 +13,13 @@ class CommentsController < ApplicationController
     redirect_to request.referrer
   end
 
-  def show
+  def destroy
+    beet = params[:beet_id]
+    user = params[:user_id]
+    comment_id = params[:id]
+    comment = Comment.where(id: comment_id, beet_id: beet, user_id: user)
+    comment.destroy_all
+    redirect_to request.referrer
   end
 
   private

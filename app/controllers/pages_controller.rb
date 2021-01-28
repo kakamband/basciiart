@@ -8,6 +8,6 @@ class PagesController < ApplicationController
 
   def clipboard
     beet = Beet.find params[:id]
-    IO.popen("pbcopy", "w") { |pipe| pipe.puts beet.content }
+    IO.popen("pbcopy", "w") { |clipboard| clipboard.puts beet.content }
   end
 end

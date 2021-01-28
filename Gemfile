@@ -28,7 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Project gem inclusions:
+##### Project gem inclusions: #####
 
 # asciiart gem which is being utilised for the project: https://github.com/nodanaonlyzuul/asciiart - also includes rainbow and rmagik as dependencies
 gem 'asciiart'
