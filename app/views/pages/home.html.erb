@@ -35,7 +35,7 @@
 
       <a href="/beets/<%= beet.id %>" id="comment-beet">comments <%= "(#{@comments.where(beet_id: beet.id).count})" if @comments.where(beet_id: beet.id).count != 0 %></a>
 
-      <%= link_to "", "#", :class => 'far fa-copy', :id => 'clipboard', :onclick => IO.popen("pbcopy", "w") { |clipboard| clipboard.puts beet.content } %>
+      <%= link_to "", root_path(:id => beet.id), :class => 'far fa-copy', :id => 'clipboard', :method => 'clipboard' %>
 
       </div>
 
