@@ -50,7 +50,7 @@
 <h2>Comments <%= "[#{ @comments.where(beet_id: @beet.id).count }]" %></h2>
 
 <% @comments.each do |comment| %>
-  <div class="comments">
+  <div class="comments" id="<%= comment.id %>">
     <p><%= comment.content %></p>
     <div class="comments-info">
       <a href="/users/<%= comment.user.id %>"><%= comment.user.username %></a>
@@ -63,8 +63,8 @@
 
 <% if @current_user.present? %>
   <div class="leave-comment">
+    <h2>Comment on <%= @beet.user.username %>'s beet:</h2>
     <%= form_for @comment_new do |f| %>
-      <%= f.label "comment on #{ @beet.user.username }'s beet:" %>
       <%= f.text_field :content %>
       <%= f.hidden_field :beet_id, value: @beet.id %>
       <%= f.hidden_field :user_id, value: @current_user.id %>
